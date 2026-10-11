@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask
+  template:
+    metadata:
+      labels:
+        app: flask
+    spec:
+      containers:
+      - name: flask-container
+        image: technoavengers/flask-app-env
+        ports:
+        - containerPort: 5000
+        envFrom:
+        - configMapRef:
+            name: postgres-config
+        volumeMounts:
+        - name: secret-volume
+          mountPath: /mnt/secrets
+          readOnly: true
+      volumes:
+      - name: secret-volume
+        secret:
+          secretName: postgres-secret

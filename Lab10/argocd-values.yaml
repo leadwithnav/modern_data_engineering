@@ -1,0 +1,14 @@
+# ArgoCD Helm Values optimized for local Minikube development
+global:
+  domain: localhost:8080
+
+server:
+  # Enable insecure mode for plain HTTP behind port-forwarding (no SSL warnings)
+  extraArgs:
+    - --insecure
+  service:
+    type: ClusterIP
+
+configs:
+  params:
+    server.insecure: true

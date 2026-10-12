@@ -22,7 +22,7 @@ In this lab, you will deploy a Flask application on Kubernetes that shows a form
 ## ☘️ Pre-requiste : Setup K3s Cluster
 1. Start Minikube
 ```bash
-minikube start --driver=docker --ports=30000:30000
+minikube start
 ```
 
 
@@ -119,7 +119,7 @@ spec:
 ## ☘️ Step 3: Deploy Postgres
 
 ```bash
-cd ~/swift_training/kubernetes/Lab5
+cd ~/modern_platform_engineering/Lab5
 kubectl apply -f postgres-deployment.yaml
 ```
 check pod status
@@ -199,15 +199,9 @@ kubectl apply -f flask-service.yaml
 
 ## ☘️ Step 9: Access the Flask App
 
-### 🔍 To get the EC2 public IP address:
-Run the following command in terminal and it will provide you public IP address of EC2 machine you are using:
-```bash
-curl http://169.254.169.254/latest/meta-data/public-ipv4
-```
-### 🔍 Open your local browser and go to:
-Replace the EC2-Address that you have recieved in last command in below URL
+Open Browser
 
-  👉 `http://<your-ec2-public-ip>:30000`
+  👉 `http://192.168.49.2:30000`
 
 ---
 

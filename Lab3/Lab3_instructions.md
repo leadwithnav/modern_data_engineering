@@ -23,8 +23,7 @@ In this lab, you will expose your Python-Flask application running on Kubernetes
 Stop & Start Minikube with the following command to ensure port 30000 is exposed:
 
 ```bash
-minikube stop
-minikube start --driver=docker --ports=30000:30000
+minikube start 
 ```
 
 
@@ -33,7 +32,7 @@ minikube start --driver=docker --ports=30000:30000
 Go to folder
 
 ```bash
-cd ~/swift_training/kubernetes/Lab3
+cd ~/modern_platform_engineering/Lab3
 ```
 
 Create the same replica set again with 3 replicas as we explored in the last lab.

@@ -7,6 +7,6 @@ metadata:
 spec:
   containers:
   - name: flask-container
-    image: technoavengers/flask-app:v1
+    image: 962804699607.dkr.ecr.us-west-2.amazonaws.com/eks-demo-app:v1
     ports:
     - containerPort: 5000

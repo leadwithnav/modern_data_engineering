@@ -38,7 +38,7 @@ kubectl get nodes
 Navigate to the lab directory:
 
 ```bash
-cd D:\trainings\Modern_Platform_Engineering\Lab-Troubleshooting
+cd ~\Modern_Platform_Engineering\Lab-Troubleshooting
 ```
 
 ---

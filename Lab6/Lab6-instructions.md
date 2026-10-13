@@ -5,7 +5,7 @@
 ## ☘️ Pre-requiste : Setup K3s Cluster
 1. Start Minikube
 ```bash
-minikube start --driver=docker --ports=30000:30000
+minikube start
 ```
 
 
@@ -17,7 +17,7 @@ kubectl get storageclasses
 ### Step 2: Create PVC with Storage Class
 
 ```bash
-cd ~/swift_training/kubernetes/Lab6
+cd ~/modern_platform_engineering/Lab6
 kubectl apply -f postgres-pv-pvc.yaml
 ```
 
@@ -69,15 +69,7 @@ kubectl get svc
 
 Make sure Flask Pod is in running status before moving ahead
 
-### 🔍 To get the EC2 public IP address:
-Run the following command in terminal and it will provide you public IP address of EC2 machine you are using:
-```bash
-curl http://169.254.169.254/latest/meta-data/public-ipv4
-```
-### 🔍 Open your local browser and go to:
-Replace the EC2-Address that you have recieved in last command in below URL
-
-  👉 `http://<your-ec2-public-ip>:30000`
+minikube service flask-service
 
 ---
 

@@ -17,7 +17,7 @@ kubectl get storageclasses
 ### Step 2: Create PVC with Storage Class
 
 ```bash
-cd ~/modern_platform_engineering/Lab6
+cd ~/modern_data_engineering/Lab6
 kubectl apply -f postgres-pv-pvc.yaml
 ```
 

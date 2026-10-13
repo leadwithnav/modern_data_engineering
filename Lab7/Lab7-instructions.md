@@ -12,7 +12,7 @@ You will:
 ## ☘️ Pre-requiste : Setup K3s Cluster
 1. Start Minikube
 ```bash
-minikube start --driver=docker --ports=30000:30000
+minikube start 
 ```
 
 
@@ -21,7 +21,7 @@ minikube start --driver=docker --ports=30000:30000
 ### Step 1: Apply ConfigMap
 
 ```bash
-cd ~/swift_training/Lab7
+cd ~/modern_data_engineering/Lab7
 kubectl apply -f configmap.yaml
 ```
 
@@ -45,7 +45,6 @@ kubectl get secret
 ### Step 3: Create PVC with Storage Class
 
 ```bash
-cd ~/swift_training/Lab6
 kubectl apply -f postgres-pv-pvc.yaml
 ```
 
@@ -99,15 +98,9 @@ exit
 
 ## ☘️ Step 7: Access the Flask App
 
-### 🔍 To get the EC2 public IP address:
-Run the following command in terminal and it will provide you public IP address of EC2 machine you are using:
 ```bash
-curl http://169.254.169.254/latest/meta-data/public-ipv4
+minikube service flask-service
 ```
-### 🔍 Open your local browser and go to:
-Replace the EC2-Address that you have recieved in last command in below URL
-
-  👉 `http://<your-ec2-public-ip>:30000`
 
 ---
 
@@ -123,6 +116,6 @@ Replace the EC2-Address that you have recieved in last command in below URL
 ## 🧹 Cleanup
 
 ```bash
-cd ~/swift_training/Lab7
+cd ~/modern_data_engineering/Lab7
 kubectl delete -f .
 ```

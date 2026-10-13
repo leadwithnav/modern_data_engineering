@@ -1,1 +1,3 @@
-useStatefulSet: true
+ primary:
+  service:
+    type: NodePort

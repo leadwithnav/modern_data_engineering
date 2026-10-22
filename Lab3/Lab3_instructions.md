@@ -96,7 +96,7 @@ flask-nodeport     NodePort   10.96.xxx.xxx   <none>        5000:30000/TCP   1m
 Access the Flask app via curl:
 
 ```bash
-curl localhost:30000
+curl 192.168.49.2:30000
 ```
 
 ---

@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodeapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      type: frontend
+  template:
+    metadata:
+      name: nodeapp-pod
+      labels:
+        type: frontend
+    spec:
+      containers:
+      - name: nodeapp-container
+        image: navjoy220161/node-mongo:1.0.10
+        ports:
+        - containerPort: 3000
+        envFrom:
+        - configMapRef:
+            name: app-configmap

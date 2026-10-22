@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo
+  namespace: database
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongo
+      type: backend
+  template:
+    metadata:
+      labels:
+        app: mongo
+        type: backend
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: node-type
+                operator: In
+                values:
+                - database
+      tolerations:
+      - key: "db"
+        operator: "Equal"
+        value: "true"
+        effect: "NoSchedule"
+
+      containers:
+      - name: mongo
+        image: mongo:5.0
+        ports:
+        - containerPort: 27017
+        volumeMounts:
+        - mountPath: /data/db
+          name: mongodb-volume
+
+      volumes:
+      - name: mongodb-volume
+        persistentVolumeClaim:
+          claimName: mongo-pvc

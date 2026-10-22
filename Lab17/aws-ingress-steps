@@ -1,0 +1,17 @@
+aws eks update-kubeconfig --region us-west-2 --name mycluster
+
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.1.0/deploy/static/provider/cloud/deploy.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.1.0/deploy/static/provider/aws/deploy.yaml
+
+
+kubectl annotate service ingress-nginx-controller -n ingress-nginx \
+ service.beta.kubernetes.io/aws-load-balancer-scheme=internet-facing \
+ service.beta.kubernetes.io/aws-load-balancer-type=nlb \
+ --overwrite
+
+ Apply replicaSet
+ Apply ClusterIP service
+ Apply Ingress Rules
+
+ Create A record and point it to Loadbalancer
+

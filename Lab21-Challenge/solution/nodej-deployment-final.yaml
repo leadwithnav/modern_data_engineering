@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodeapp
+  namespace: frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nodeapp
+      type: frontend
+  template:
+    metadata:
+      labels:
+        app: nodeapp
+        type: frontend
+    spec:
+      containers:
+      - name: nodeapp-container
+        image: navjoy220161/node-mongo:1.0.10
+        ports:
+        - containerPort: 3000
+        envFrom:
+        - configMapRef:
+            name: app-configmap
+        resources:
+          requests:
+            cpu: 100m
+            memory: 256Mi
+          limits:
+            cpu: 300m
+            memory: 512Mi

@@ -5,7 +5,7 @@ metadata:
   labels:
     app: flask
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: flask
@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: flask-container
-        image: technoavengers/flask-app:v1
+        image: technoavengers/mypythonimage22102026
         ports:
         - containerPort: 5000
